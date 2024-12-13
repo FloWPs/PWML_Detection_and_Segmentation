@@ -179,12 +179,12 @@ if __name__ == "__main__":
                             image_size = 32,
                             channels = 3,
                             num_classes = 2,
-                            patch_size_small = 2, # 8 # 16 # 16 # 8 # 4 # 8 # 4 # 2
-                            patch_size_large = 2, # 16 # 16 # 8 # 8 # 8 # 4 # 2
-                            small_dim = 24, # 96 # 192 # 192 # 96 # 48 # 96 # 48 # 24
-                            large_dim = 24, # 96 # 192 # 96 # 96 # 96 # 48 # 48 #24
-                            small_depth = 1, # 1 # 4 # 4 # 2 # 1 # 2 # 1 # 1
-                            large_depth = 1 # 4 # 4 # 1 # 2 # 2 # 1 # 1 # 1
+                            patch_size_small = 2,
+                            patch_size_large = 2, 
+                            small_dim = 24, 
+                            large_dim = 24, 
+                            small_depth = 1, 
+                            large_depth = 1
                 )
     checkpoint = torch.load(MODEL_PATH)['model_state_dict']
     model.load_state_dict(checkpoint)
