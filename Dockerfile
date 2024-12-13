@@ -18,9 +18,9 @@ WORKDIR /app/PWML_Detection_and_Segmentation
 # Créer les dossiers "models" et "output"
 RUN mkdir models && mkdir output
 
-# Copier le dossier "models" local dans le conteneur
+# Copier les modèles (en local) dans le conteneur
 COPY models ./models
 
-# Installer les dépendances
+# Installer les librairies
 RUN pip install -r requirements.txt
 
