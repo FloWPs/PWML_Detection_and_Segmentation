@@ -2,3 +2,5 @@
 /output
 __pycache__
 utils/__pycache__/add
+/data
+pwml-segmentation-v0.2.tgz
