@@ -25,11 +25,11 @@ CROP_PARAM_TR = [139, -61, 149, -11, 189, -21]
 CROP_PARAM_TL = [150, 189, 139, -22, -61, -11]
 
 # Segmentation Models
-MODEL_PATH_TL = './models/model_config_TL.pth'
-MODEL_PATH_TR = './models/model_config_TR.pth'
+MODEL_PATH_TL = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'models/model_config_TL.pth')
+MODEL_PATH_TR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'models/model_config_TR.pth')
 
 # Classification Model
-MODEL_PATH = './models/cactus.pth'
+MODEL_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'models/cactus.pth')
 
 # Vignette dimensions
 VIGNETTE_DIM = (32, 32) # (16, 16) # (64, 64)
