@@ -51,11 +51,11 @@ LESION_PERCENTAGE = 0.9
 PC_threshold_max = 60
 
 # Select computing device
-device = 'cpu:0'
+device = 'cpu'
 if torch.cuda.is_available():
-    device = 'cuda:0'
+    device = 'cuda'
     print('Cuda available :', device)
-
+    
 
 
 
@@ -78,8 +78,8 @@ def read_and_preprocess(img):
 def infer(volume, transunet, treshold=0.5, merged=True):
 
     preds = np.zeros(volume.shape, dtype=np.uint8)
-
-    for i in range(volume.shape[2]):
+    from tqdm import tqdm
+    for i in tqdm(range(volume.shape[2])):
         # coronal_slice = volume[:, :, i]
 
         if i != 0 and i != (volume.shape[2]-1):
@@ -109,7 +109,7 @@ def infer(volume, transunet, treshold=0.5, merged=True):
 
     return preds
 
-
+# python main.py -in ./data/Patient-26.mat -out ./output
 
 if __name__ == "__main__":
     # Configuration de l'analyse des arguments
@@ -186,7 +186,7 @@ if __name__ == "__main__":
                             small_depth = 1, 
                             large_depth = 1
                 )
-    checkpoint = torch.load(MODEL_PATH)['model_state_dict']
+    checkpoint = torch.load(MODEL_PATH, map_location=device)['model_state_dict']
     model.load_state_dict(checkpoint)
 
     print(f'\n[STEP 2] Removing false alarms with CACTUS...')

@@ -32,7 +32,7 @@ class TransUNetSeg:
         self.scheduler = ReduceLROnPlateau(self.optimizer, mode='min', factor=0.1, patience=5, verbose=True) # modif flora
 
     def load_model(self, path):
-        ckpt = torch.load(path)
+        ckpt = torch.load(path, map_location=self.device)
         self.model.load_state_dict(ckpt['model_state_dict'])
         self.optimizer.load_state_dict(ckpt['optimizer_state_dict'])
 

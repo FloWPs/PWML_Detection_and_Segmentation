@@ -10,7 +10,7 @@ RUN mkdir /app
 WORKDIR /app
 
 # Cloner le repo
-RUN git clone --depth=1 --branch=master https://github.com/FloWPs/PWML_Detection_and_Segmentation
+RUN git clone --depth=2 --branch=master https://github.com/FloWPs/PWML_Detection_and_Segmentation
 
 # Changer le répertoire de travail
 WORKDIR /app/PWML_Detection_and_Segmentation
