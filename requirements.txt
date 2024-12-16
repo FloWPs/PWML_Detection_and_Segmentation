@@ -6,10 +6,10 @@ hdf5storage==0.1.19
 numpy==1.22.4
 opencv-python==4.10.0.84
 pillow==11.0.0
+pynrrd
 scipy==1.13.1
 typing_extensions==4.12.2
 scikit-learn==1.3.0
-scipy==1.10.1
 submitit==1.4.5
 timm==0.4.12
 --find-links https://download.pytorch.org/whl/torch_stable.html
