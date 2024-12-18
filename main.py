@@ -3,6 +3,7 @@ import cv2
 import hdf5storage
 import nrrd
 import argparse
+from tqdm import tqdm
 
 from utils.utils import *
 from utils.config import cfg
@@ -78,7 +79,7 @@ def read_and_preprocess(img):
 def infer(volume, transunet, treshold=0.5, merged=True):
 
     preds = np.zeros(volume.shape, dtype=np.uint8)
-    from tqdm import tqdm
+    
     for i in tqdm(range(volume.shape[2])):
         # coronal_slice = volume[:, :, i]
 
@@ -343,6 +344,6 @@ if __name__ == "__main__":
     new_dir = args.output
     # print(new_dir)
     os.makedirs(new_dir, exist_ok=True)
-    nrrd.write(f'{new_dir}\\full_brain_image.nrrd', image_MITK_full_brain, header)
-    nrrd.write(f'{new_dir}\\full_brain_prediction.nrrd', pred_MITK_full_brain, header)
+    nrrd.write(os.path.join(new_dir,'full_brain_image.nrrd'), image_MITK_full_brain, header)
+    nrrd.write(os.path.join(new_dir,'full_brain_prediction.nrrd'), pred_MITK_full_brain, header) 
     print('\nALL DONE ! :)')
